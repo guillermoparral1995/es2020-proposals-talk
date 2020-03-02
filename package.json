@@ -1,0 +1,34 @@
+{
+  "name": "es2020-proposals-talk",
+  "version": "1.0.0",
+  "description": "Repo for tech talk about ES2020 features and some ES proposals",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo `No tests here!`",
+    "mock-server": "http-server ./mocks -p 8081",
+    "watch": "npx babel src --out-dir dist --watch",
+    "start": "concurrently \"npm run mock-server\" \"nodemon dist/index.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guillermoparral1995/es2020-proposals-talk.git"
+  },
+  "author": "Guillermo Parral",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/guillermoparral1995/es2020-proposals-talk/issues"
+  },
+  "homepage": "https://github.com/guillermoparral1995/es2020-proposals-talk#readme",
+  "dependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.6",
+    "@babel/plugin-syntax-top-level-await": "^7.8.3",
+    "@babel/polyfill": "^7.8.3",
+    "@babel/preset-env": "^7.8.6",
+    "concurrently": "^5.1.0",
+    "core-js": "^3.6.4",
+    "http-server": "^0.12.1",
+    "node-fetch": "^2.6.0",
+    "nodemon": "^2.0.2"
+  }
+}

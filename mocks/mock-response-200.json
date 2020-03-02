@@ -1,0 +1,8 @@
+{
+  "status": 200,
+  "data": {
+    "name": "Guillermo",
+    "surname": "Parral",
+    "dateOfBirth": "17/10/1995"
+  }
+}
