@@ -1,5 +1,5 @@
 {
   "env": {
-    "FEATURE": "promises"
+    "FEATURE": "early-proposals/pipelining-partial"
   }
 }

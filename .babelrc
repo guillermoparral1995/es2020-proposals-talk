@@ -15,6 +15,11 @@
     ]
   ],
   "plugins": [
-    "@babel/plugin-syntax-top-level-await"
+    "@babel/plugin-syntax-top-level-await",
+    ["@babel/plugin-proposal-pipeline-operator", { "proposal": "minimal" }],
+    "@babel/plugin-proposal-partial-application",
+    "@babel/plugin-proposal-throw-expressions",
+    "@babel/plugin-proposal-private-methods",
+    "@babel/plugin-proposal-class-properties"
   ]
 }
