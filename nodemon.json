@@ -1,5 +1,5 @@
 {
   "env": {
-    "FEATURE": "early-proposals/throw-expression"
+    "FEATURE": "early-proposals/pipelining-partial"
   }
 }

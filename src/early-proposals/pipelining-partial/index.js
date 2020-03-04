@@ -1,3 +1,18 @@
+const fetch = require("node-fetch");
+
+const currying = () => {
+  // también se puede aplicar para currying, aunque es un toque más feo
+
+  const normalAdd = (x, y) => x + y;
+  const curriedAdd = x => y => x+y;
+
+  console.log(`normalAdd(4, 5): ${normalAdd(4, 5)}`);
+  console.log(`curriedAdd(7, 8): ${curriedAdd(7)(8)}`);
+
+  // si aplicamos un solo parametro, obtenemos una funcion aplicada parcialmente
+  // a la cual podemos llamar más adelante con el parámetro faltante 
+}
+
 const partialApplication = () => {
   // // supongamos que tengo una función suma
   // const add = (x, y) => x + y;
@@ -63,8 +78,51 @@ const multipleArgumentExample = () => {
     console.log(miEdadEn37Anios);
 }
 
+const funkyValidation = async () => {
+  const checkName = (data) => typeof data.name === 'string' ? data : throw Error('Name must be a string');
+  const isEnabled = (data) => data.enabled ? data : throw Error('User is not enabled')
+  const likesDowntonAbbey = (data) => data.favorites.series?.includes('Downton Abbey') ? data : throw Error('You must like Downton Abbey');
+  const addBand = (data, band) => {
+    data.favorites.music?.international?.push(band) ?? throw Error('User does not like international music');
+    return data;
+  } 
+  // partially applied function
+  const addTheBeatles = addBand(?, 'The Beatles');
+  const shouldLikePulpFiction = (data) => [data, 'movies', 'Pulp Fiction'];
+  const addCategory = (data, category, item) => {
+    const currentCategory = data.favorites[category] ?? [];
+    const updatedCategory = [...currentCategory, item];
+    data.favorites[category] = updatedCategory;
+    return data;
+  };
+  const logUser = (data) => console.log(data);
+
+  try {
+    const response = await fetch('http://localhost:8081/mock-response-200.json');
+    const json = await response.json();
+  
+    const data = json.data ?? throw Error('There was a problem fetching user');
+
+    // importante! cada etapa del pipe tiene que retornar el parámetro de la siguiente función
+    // (si la siguiente función lo precisa)
+    data 
+      |> checkName 
+      |> isEnabled 
+      |> likesDowntonAbbey 
+      // |> addBand(?, 'The Beatles') 
+      |> addTheBeatles
+      |> shouldLikePulpFiction
+      // a fin de cuentas, esto es un arrow function así que puedo devolver tuplas y pasar todos los argumentos
+      |> (_ => addCategory(..._))
+      |> logUser;
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 const main = () => {
-  partialApplication();
+  funkyValidation();
 };
 
 module.exports = main;

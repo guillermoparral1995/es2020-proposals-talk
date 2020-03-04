@@ -3,6 +3,16 @@
   "data": {
     "name": "Guillermo",
     "surname": "Parral",
-    "dateOfBirth": "17/10/1995"
+    "age": 24,
+    "favorites": {
+      "foods": ["ravioles", "milanesas", "chocotorta"],
+      "music": {
+        "national": ["Soda Stereo", "El Mató a un Policía Motorizado"],
+        "international": ["Radiohead", "Pearl Jam", "White Stripes"]
+      },
+      "series": ["Breaking Bad", "Avatar", "Downton Abbey"],
+      "anime": ["Kaguya-sama", "Tora Dora"]
+    },
+    "enabled": true
   }
 }
