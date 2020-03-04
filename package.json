@@ -4,6 +4,7 @@
   "description": "Repo for tech talk about ES2020 features and some ES proposals",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint --fix src",
     "test": "echo `No tests here!`",
     "mock-server": "http-server ./mocks -p 8081",
     "watch": "npx babel src --out-dir dist --watch",
@@ -30,8 +31,10 @@
     "@babel/plugin-syntax-top-level-await": "^7.8.3",
     "@babel/polyfill": "^7.8.3",
     "@babel/preset-env": "^7.8.6",
+    "babel-eslint": "11.0.0-beta.0",
     "concurrently": "^5.1.0",
     "core-js": "^3.6.4",
+    "eslint": "^6.8.0",
     "http-server": "^0.12.1",
     "node-fetch": "^2.6.0",
     "nodemon": "^2.0.2"
